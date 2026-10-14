@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kiva Story | Kevin Allen</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:-apple-system,'Helvetica Neue',Arial,sans-serif;background:#f4f1ea;color:#2a2a2a;padding:20px 16px 60px;line-height:1.55}
+  .wrap{max-width:680px;margin:0 auto}
+  h1{font-size:1.4rem;text-align:center;margin-bottom:6px}
+  .sub{text-align:center;color:#777;font-size:.85rem;margin-bottom:24px}
+  .card{background:#fff;border-radius:10px;padding:18px;margin-bottom:22px;box-shadow:0 2px 8px rgba(0,0,0,.07)}
+  .script{white-space:pre-wrap;background:#faf8f4;border:1px solid #e8e2d6;border-radius:8px;padding:14px;font-size:.95rem}
+  button{display:block;width:100%;margin-top:12px;padding:14px;border:none;border-radius:8px;background:#5b2a6e;color:#fff;font-size:1rem;font-weight:600;cursor:pointer}
+  button.done{background:#2e7d32}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Your Kiva Story</h1>
+<p class="sub">Tap Copy, then paste it into the Kiva application story field.</p>
+
+<div class="card">
+<div class="script" id="story">My name is Kevin Allen, and I'm an audio guy who fell in love with light.
+
+For 25 years, my favorite moment of every event has been the same: the second the vision goes live. A client comes to me with a dream, and I get to build it, hang the fixtures, dial in the color, and watch them see their idea standing in front of them, real and glowing. At the end of the night I bring the lights down slow, stand there while the room falls asleep, and start all over again the next day. I've never once been tired of it.
+
+I spent 15 years at Encore, the biggest name in hotel audiovisual, the last 10 as a Director running my own property. I sold and managed $100,000 clients, many times, and routinely juggled 3 to 5 different clients in the same hotel in the same week, running $15,000-$30,000 corporate programs with main session rooms and full breakout schedules. My team set records for revenue and won our customer service awards.
+
+This year, the hotel decided my position cost more than they wanted to pay, and I was let go. So I'm building Allen Audiovisual, my own company serving DFW from Forney. I already have what most startups don't: a lifetime of relationships with the hotels, venues, and planners who book this work, and a track record of running the biggest shows in their buildings.
+
+This loan buys my core kit: speakers, wireless mics, projector, and the lighting that's my first love, so every event I book is mine, start to finish. I'm not asking to learn this business. I'm asking for the gear to keep doing the business I've already led for a decade. My website is live, I'm setting up my legal registration, and my first milestone is 6 programs in 90 days.
+
+I make visions real for a living. This loan is how I get to keep doing it under my own name.</div>
+<button onclick="cp(this)">Copy the story</button>
+</div>
+
+</div>
+<script>
+function cp(btn){
+  var text = document.getElementById('story').innerText;
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){ ok(btn); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text; document.body.appendChild(ta);
+    ta.select(); document.execCommand('copy'); document.body.removeChild(ta); ok(btn);
+  }
+}
+function ok(btn){ btn.textContent='Copied! Now paste it into Kiva'; btn.classList.add('done'); setTimeout(function(){ btn.textContent='Copy the story'; btn.classList.remove('done'); }, 2500); }
+</script>
+</body>
+</html>
